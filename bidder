@@ -1,0 +1,38 @@
+pragma solidity ^0.5.1;
+
+contract Bid{
+    struct bidder{
+        string bidderName;
+        uint bidValue;
+        }
+
+        mapping(address=>bidder) bidderAddress;
+        address[] public bidderAccounts;
+
+        uint public currentBid;
+
+    function setBidder( string memory _name, uint _bid)public{
+        address _addr = msg.sender;
+        bidderAddress[_addr];
+        bidderAddress[_addr].bidderName = _name;
+        bidderAddress[_addr].bidValue= _bid;
+
+        bidderAccounts.push(_addr)-1;
+
+        }
+
+        function getBidderAccounts()view public returns(address[] memory){
+            return bidderAccounts;
+        }
+
+        function getBidderInfo(address _addr)view public returns(string memory, uint){
+            return (bidderAddress[_addr].bidderName, bidderAddress[_addr].bidValue);
+        }
+
+
+        function bidding() public {
+
+        }
+
+
+}
